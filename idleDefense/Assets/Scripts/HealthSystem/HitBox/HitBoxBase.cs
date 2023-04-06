@@ -6,9 +6,14 @@ namespace HealthSystem
     {
         [SerializeField] private Health _health;
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnEnable()
         {
-            HitHandler();
+            _health.Died += DiedHandler;
+        }
+
+        private void OnDisable()
+        {
+            _health.Died -= DiedHandler;
         }
 
         public void DamageHandler(float damage)
@@ -16,6 +21,6 @@ namespace HealthSystem
             _health.TakeDamage(damage);
         }
 
-        protected abstract void HitHandler();
+        protected abstract void DiedHandler();
     }
 }

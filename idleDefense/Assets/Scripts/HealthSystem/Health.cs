@@ -6,7 +6,7 @@ namespace HealthSystem
 {
     public class Health : MonoBehaviour
     {
-        [SerializeField] private float _maxHealth;
+        [SerializeField] private float _startHealth;
 
         private float _currentHealth;
 
@@ -18,7 +18,7 @@ namespace HealthSystem
 
         private void Start()
         {
-            _currentHealth = _maxHealth;
+            _currentHealth = _startHealth;
 
             HealthInitialized.Invoke(_currentHealth);
         }
@@ -29,7 +29,7 @@ namespace HealthSystem
 
             Damaged.Invoke(_currentHealth);
 
-            if (_currentHealth < 0)
+            if (_currentHealth <= 0)
             {
                 Died.Invoke();
             }
