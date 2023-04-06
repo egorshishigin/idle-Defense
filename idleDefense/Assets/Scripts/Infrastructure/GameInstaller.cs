@@ -32,6 +32,8 @@ namespace Infrastructure
 
         [SerializeField] private GameOverView _gameOverView;
 
+        private const int TargetFPS = 60;
+
         public override void InstallBindings()
         {
             BindGameOver();
@@ -45,6 +47,13 @@ namespace Infrastructure
             BindSpawner();
 
             BindPlayer();
+        }
+
+        public override void Start()
+        {
+            base.Start();
+
+            Application.targetFrameRate = TargetFPS;
         }
 
         private void BindGameOver()

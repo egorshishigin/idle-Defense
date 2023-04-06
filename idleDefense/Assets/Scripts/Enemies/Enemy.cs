@@ -78,7 +78,7 @@ namespace Enemies
 
         private void Move(Vector2 direction)
         {
-            _rigidbody.MovePosition((Vector2)transform.position + (direction * _moveSpeed * Time.fixedDeltaTime));
+            _rigidbody.MovePosition((Vector2)transform.position + (direction * _moveSpeed * Time.deltaTime));
         }
     }
 }
