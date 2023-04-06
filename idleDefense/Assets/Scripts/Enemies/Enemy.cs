@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Enemies
 {
-    public class Enemy : MonoBehaviour
+    public class Enemy : MonoBehaviour, IEnemy
     {
         [SerializeField] private float _moveSpeed;
 
