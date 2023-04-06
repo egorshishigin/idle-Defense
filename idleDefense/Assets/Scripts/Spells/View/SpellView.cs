@@ -1,3 +1,5 @@
+using TMPro;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +10,8 @@ namespace Spells.View
         [SerializeField] private Button _button;
 
         [SerializeField] private Image _image;
+
+        [SerializeField] private TMP_Text _cooldownText;
 
         [SerializeField] private SpellBase _spell;
 
@@ -47,11 +51,15 @@ namespace Spells.View
         private void SpellCooldownAnimation(float time)
         {
             _image.fillAmount += 0.25f / time * Time.deltaTime;
+
+            _cooldownText.text = time.ToString("0.00");
         }
 
         private void SpellRefreshedHandler()
         {
             _image.fillAmount = 1f;
+
+            _cooldownText.text = string.Empty;
         }
     }
 }

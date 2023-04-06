@@ -1,13 +1,14 @@
-using HealthSystem;
-using System.Collections;
 using System.Collections.Generic;
+
+using HealthSystem;
+
 using UnityEngine;
 
 namespace Player
 {
     public class TargetPicker : MonoBehaviour
     {
-        [SerializeField] private float _radius;
+        [SerializeField] private float _aimRadius;
 
         [SerializeField] private Color _gizmosColor;
 
@@ -19,7 +20,7 @@ namespace Player
 
         public void SelectTarget()
         {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _radius);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _aimRadius);
 
             foreach (Collider2D collider in colliders)
             {
@@ -37,7 +38,7 @@ namespace Player
             {
                 float distance = Vector2.Distance(enemy.transform.position, transform.position);
 
-                if(distance < minDistance)
+                if (distance < minDistance)
                 {
                     _currentTarget = enemy.transform;
 
@@ -52,7 +53,7 @@ namespace Player
         {
             Gizmos.color = _gizmosColor;
 
-            Gizmos.DrawWireSphere(transform.position, _radius);
+            Gizmos.DrawWireSphere(transform.position, _aimRadius);
         }
     }
 }

@@ -17,7 +17,6 @@ namespace Spells
 
         public event Action Refreshed = delegate { };
 
-        [ContextMenu("Cast spell")]
         public void CastSpell()
         {
             if (_used) return;

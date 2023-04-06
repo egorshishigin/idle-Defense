@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-
 using Zenject;
 
-using UnityEngine;
 using HealthSystem;
+
+using UnityEngine;
 
 namespace WeaponSystem
 {
@@ -23,8 +21,6 @@ namespace WeaponSystem
         protected override void Attack()
         {
             _playerHitBox.DamageHandler(_damage);
-
-            Debug.Log("attack player");
         }
     }
 }
